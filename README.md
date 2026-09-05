@@ -55,7 +55,6 @@ The ADC continuously reads the joystick position and generates a corresponding s
 
 This allows authentication to control not only whether the system can be used, but also **what the authenticated user is authorized to do**.
 
-````markdown
 ## System Operation
 
 ### System Architecture
@@ -80,6 +79,49 @@ flowchart LR
     Lockout --> Buzzer["Audible Alert"]
     Lockout --> Reset["Hardware Reset Required"]
     Reset --> Auth
+```
+
+### Control Sequence
+
+```text
+Power On
+   |
+   v
+Select User Profile
+   |
+   v
+Check EEPROM for Existing Password
+   |
+   +---- No ----> Create and Store Password
+   |
+   v
+Authenticate User
+   |
+   +---- Failure ----> Retry ----> Lockout After 3 Attempts
+   |
+   v
+Access Granted
+   |
+   v
+Enable ADC + PWM + Emergency Interrupt
+   |
+   v
+Joystick Controls Servo
+   |
+   v
+Apply Profile-Specific Motion Limits
+   |
+   v
+Emergency Input Triggered?
+   |
+   +---- Yes ----> Revoke Access
+                   Stop Interrupt-Driven Control Updates
+                   Activate Alert
+                   Require Hardware Reset
+                   Return to Authentication
+```
+
+## Embedded Systems Implementation
 
 ## Embedded Systems Implementation
 
