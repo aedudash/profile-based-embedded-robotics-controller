@@ -283,6 +283,21 @@ Potential extensions to the project include:
 - Enclosure design
 - Expanded safety circuitry
 
+## Demonstration
+
+A full demonstration of the Profile-Based Embedded Robotics Controller is available below.
+
+[▶ View the system demonstration](demo/profile-based-controller-demo.mp4)
+
+The demonstration includes:
+
+- User profile selection
+- UART-based password authentication
+- Profile-specific servo movement limits
+- Joystick-based servo control
+- Emergency lockout behavior
+- Hardware reset and reauthentication
+
 ## Author
 
 **Aidan Dudash**
