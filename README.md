@@ -123,8 +123,6 @@ Emergency Input Triggered?
 
 ## Embedded Systems Implementation
 
-## Embedded Systems Implementation
-
 ### UART Communication
 
 UART provides the primary user interface for:
